@@ -1,0 +1,75 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "simtooreal-backend",
+            "image": "danriti/nginx-gunicorn-flask",
+            "cpu": "256",
+            "memory": "512",
+            "portMappings": [
+                {
+                    "hostPort": 8080,
+                    "protocol": "tcp",
+                    "containerPort": 8080
+                }
+            ],
+            "essential": true,
+            "mountPoints": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/simtooreal",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "simtooreal-backend"
+                }
+            },
+            "volumesFrom": [],
+            "secrets": [
+              {
+                "valueFrom": "arn:aws:ssm:us-east-1:923082272114:parameter/parameter/production/POSTGRESQL_HOST",
+                "name": "POSTGRESQL_HOST"
+              },
+              {
+                "valueFrom": "arn:aws:ssm:us-east-1:923082272114:parameter/parameter/production/POSTGRESQL_PASSWORD",
+                "name": "POSTGRESQL_PASSWORD"
+              },
+              {
+                "valueFrom": "arn:aws:ssm:us-east-1:923082272114:parameter/parameter/production/OPENAI_API_KEY",
+                "name": "OPENAI_API_KEY"
+              }
+            ],
+            "environment": [
+                {
+                  "name": "POSTGRESQL_USER_NAME",
+                  "value": "postgres"
+                },
+                {
+                  "name": "POSTGRESQL_DB",
+                  "value": "simtooreal"
+                },
+                {
+                  "name": "LISTEN_ON",
+                  "value": "8080"
+                }
+            ]
+        }
+    ],
+    "requiresCompatibilities": [
+      "FARGATE"
+    ],
+    "linuxParameters": null,
+    "cpu": "1024",
+    "resourceRequirements": null,
+    "ulimits": null,
+    "secrets": null,
+    "memory": "4096",
+    "memoryReservation": null,
+    "executionRoleArn": "arn:aws:iam::923082272114:role/simtooreal_ecs_task_execution",
+    "networkMode": "awsvpc",
+    "interactive": null,
+    "pseudoTerminal": null,
+    "user": null,
+    "readonlyRootFilesystem": null,
+    "dockerLabels": null,
+    "systemControls": null,
+    "family": "simtooreal"
+}
