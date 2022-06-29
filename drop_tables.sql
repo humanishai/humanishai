@@ -1,6 +1,6 @@
 -- Deleting all tables in a way that makes sense
 
-\c simtooreal;
+\c humanish;
 ALTER TABLE public.picks
 DROP CONSTRAINT fk_items;
 
@@ -13,4 +13,4 @@ DROP TABLE public.items CASCADE;
 
 DROP SCHEMA public CASCADE;
 \c postgres;
-DROP DATABASE simtooreal;
+DROP DATABASE humanish;

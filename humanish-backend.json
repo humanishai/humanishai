@@ -1,7 +1,7 @@
 {
     "containerDefinitions": [
         {
-            "name": "simtooreal-backend",
+            "name": "humanish-backend",
             "image": "danriti/nginx-gunicorn-flask",
             "cpu": "256",
             "memory": "512",
@@ -17,9 +17,9 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/simtooreal",
+                    "awslogs-group": "/ecs/humanish",
                     "awslogs-region": "us-east-1",
-                    "awslogs-stream-prefix": "simtooreal-backend"
+                    "awslogs-stream-prefix": "humanish-backend"
                 }
             },
             "volumesFrom": [],
@@ -44,7 +44,7 @@
                 },
                 {
                   "name": "POSTGRESQL_DB",
-                  "value": "simtooreal"
+                  "value": "humanish"
                 },
                 {
                   "name": "LISTEN_ON",
@@ -63,7 +63,7 @@
     "secrets": null,
     "memory": "4096",
     "memoryReservation": null,
-    "executionRoleArn": "arn:aws:iam::923082272114:role/simtooreal_ecs_task_execution",
+    "executionRoleArn": "arn:aws:iam::923082272114:role/humanish_ecs_task_execution",
     "networkMode": "awsvpc",
     "interactive": null,
     "pseudoTerminal": null,
@@ -71,5 +71,5 @@
     "readonlyRootFilesystem": null,
     "dockerLabels": null,
     "systemControls": null,
-    "family": "simtooreal"
+    "family": "humanish"
 }

@@ -5,7 +5,7 @@ from coolname import generate_slug
 errors = 0
 for i in range(100):
     try:
-        response = requests.post('https://www.simtooreal.com/pick?item_name=' + generate_slug() + '&robot_name=' + generate_slug(2))
+        response = requests.post('https://www.humanish.io/pick?item_name=' + generate_slug() + '&robot_name=' + generate_slug(2))
     except requests.exceptions.ConnectionError:
         """ This happens when there is a connectivity issue, such as being offline """
         raise Exception('Connectivity issue')

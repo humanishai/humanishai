@@ -59,7 +59,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: simtooreal
+        ECR_REPOSITORY: humanish
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and
@@ -73,14 +73,14 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: simtooreal-backend.json
-        container-name: simtooreal-backend
+        task-definition: humanish-backend.json
+        container-name: humanish-backend
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: simtooreal_backend
-        cluster: simtooreal
+        service: humanish_backend
+        cluster: humanish
         wait-for-service-stability: true

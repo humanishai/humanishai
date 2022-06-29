@@ -140,7 +140,7 @@ if __name__ == "__main__":
         POSTGRESQL_HOST = os.environ.get('POSTGRESQL_HOST')
 
         """ We use psycopg2 to create a database connection either locally or in AWS """
-        conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="simtooreal", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
+        conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="humanish", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
         conn.autocommit=True
 
         """ Create a cursor object """

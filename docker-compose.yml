@@ -14,7 +14,7 @@ services:
     environment:
     - PGPASSWORD=magical_password
     - POSTGRESQL_PASSWORD=magical_password
-    - POSTGRESQL_HOST=simtooreal_database_1
+    - POSTGRESQL_HOST=humanish_database_1
     - POSTGRESQL_USER_NAME=unicorn_user
     - LOCAL_ENVIRONMENT=True
   database:

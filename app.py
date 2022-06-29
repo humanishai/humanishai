@@ -15,7 +15,7 @@ app = Flask(__name__)
 '''
 Pick takes a json object that has key value pairs that are robot_name and robot_item
 Both robot_name and robot_item values are strings
-Example: https://www.simtooreal.com/pick?item_name=candy bar&robot_name=walle
+Example: https://www.humanish.io/pick?item_name=candy bar&robot_name=walle
 Output: walle has successfully picked candy bar
 '''
 @app.route('/pick', methods=['GET', 'POST'])
@@ -43,7 +43,7 @@ def find_ids_and_insert_picks(robot_name, item_name):
     POSTGRESQL_PASSWORD = os.environ.get('POSTGRESQL_PASSWORD')
 
     """ We use psycopg2 to create a database connection either locally or in AWS """
-    conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="simtooreal", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
+    conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="humanish", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
     conn.autocommit=True
 
     """ Create a cursor object """
@@ -125,7 +125,7 @@ def gpt():
         POSTGRESQL_PASSWORD = os.environ.get('POSTGRESQL_PASSWORD')
 
         """ We use psycopg2 to create a database connection either locally or in AWS """
-        conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="simtooreal", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
+        conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="humanish", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
         conn.autocommit=True
 
         """ Create a cursor object """
@@ -192,7 +192,7 @@ def question():
         POSTGRESQL_PASSWORD = os.environ.get('POSTGRESQL_PASSWORD')
 
         """ We use psycopg2 to create a database connection either locally or in AWS """
-        conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="simtooreal", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
+        conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="humanish", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
         conn.autocommit=True
 
         """ Create a cursor object """
@@ -266,7 +266,7 @@ def feedback():
         POSTGRESQL_PASSWORD = os.environ.get('POSTGRESQL_PASSWORD')
 
         """ We use psycopg2 to create a database connection either locally or in AWS """
-        conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="simtooreal", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
+        conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="humanish", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
         conn.autocommit=True
 
         """ Create a cursor object """
@@ -288,7 +288,7 @@ def hello_world():
     POSTGRESQL_PASSWORD = os.environ.get('POSTGRESQL_PASSWORD')
 
     """ We use psycopg2 to create a database connection either locally or in AWS """
-    conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="simtooreal", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
+    conn = psycopg2.connect(host=POSTGRESQL_HOST, port = 5432, database="humanish", user=POSTGRESQL_USER_NAME, password=POSTGRESQL_PASSWORD)
     conn.autocommit=True
 
     """ Create a cursor object """

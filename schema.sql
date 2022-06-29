@@ -1,6 +1,6 @@
-SELECT 'CREATE DATABASE simtooreal'
-WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'simtooreal')\gexec
-\c simtooreal;
+SELECT 'CREATE DATABASE humanish'
+WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'humanish')\gexec
+\c humanish;
 CREATE SCHEMA IF NOT EXISTS public;
 
 	CREATE TABLE IF NOT EXISTS public.robots (
