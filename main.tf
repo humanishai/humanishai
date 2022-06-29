@@ -1182,7 +1182,7 @@ resource "aws_lb_listener" "humanish_http" {
 
 # humanish s3 bucket
 resource "aws_s3_bucket" "humanish_public" {
-  bucket = "humanish-public"
+  bucket = "humanishio-public"
   acl    = "private"
 
   tags = {
@@ -1193,7 +1193,7 @@ resource "aws_s3_bucket" "humanish_public" {
 
 # humanish s3 bucket
 resource "aws_s3_bucket" "humanish_private" {
-  bucket = "humanish-private"
+  bucket = "humanishio-private"
   acl    = "private"
 
   tags = {
